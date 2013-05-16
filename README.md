@@ -1,9 +1,8 @@
 # node-sense
 
-# Use
+### Use
 
 ```javascript
-
 var sense = require('./sense');
         client = new sense.Sense('api_key'),
         feed = new sense.Feed(sense, {id: feed_id}),
@@ -11,7 +10,6 @@ var sense = require('./sense');
 
 
 stream.addPoint(1337);
-
 ```
 
 Inspired by https://github.com/bigkevmcd/node-cosm
