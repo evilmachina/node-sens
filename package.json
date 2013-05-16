@@ -1,0 +1,20 @@
+{
+  "name": "node-sense",
+  "version": "0.0.0",
+  "description": "Library for interfacing with Sen.se http://sen.se",
+  "main": "sense.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "sense",
+    "IoT"
+  ],
+  "author": "Marcus Olsson",
+  "license": "MIT",
+  "dependencies": {
+    "request": "~2.21.0",
+    "underscore": "~1.4.4"
+  }
+}
