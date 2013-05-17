@@ -69,16 +69,17 @@ Queue.prototype.dequeue = function () {
     return item;
 };
 
-function Datastream(sense, feed, options) {
+function Datastream(sense, options) {
     var self = this;
 
     self._sense = sense;
-    self._feed = feed;
+    
     options = options || {};
+    self.id = options.id;
 
     if (typeof sense === 'undefined' ||
-        typeof feed === 'undefined') {
-        throw new Error('Must provide a sense and Feed for this Datastream.');
+        typeof options.id === 'undefined') {
+        throw new Error('Must provide a sense and Id for this Datastream.');
     }
 
     self._queue_size = (typeof options.queue_size === 'undefined') ? 1 : options.queue_size;
@@ -113,7 +114,7 @@ Datastream.prototype.addPoint = function (value, at, callback) {
     if (typeof at === "undefined") {
         at = self.getDate();
     }
-    self._queue.enqueue({feed_id:self._feed.id, timetag: at, value: value});
+    self._queue.enqueue({feed_id:self.id, timetag: at, value: value});
     if (self._queue.isFull()) {
         var points = [],
             value = self._queue.dequeue(),
@@ -127,7 +128,7 @@ Datastream.prototype.addPoint = function (value, at, callback) {
     }
 };
 
-function Feed(sense, options) {
+/*function Feed(sense, options) {
     var self = this;
 
     self._sense = sense;
@@ -155,10 +156,10 @@ Feed.prototype.toJSON = function () {
         };
     });
     return values;
-};
+};*/
 
 
 exports.Sense = Sense;
-exports.Feed = Feed;
+//exports.Feed = Feed;
 exports.Datastream = Datastream;
 exports.Queue = Queue;

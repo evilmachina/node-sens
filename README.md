@@ -5,8 +5,7 @@
 ```javascript
 var sense = require('./sense');
         client = new sense.Sense('api_key'),
-        feed = new sense.Feed(sense, {id: feed_id}),
-        stream = new sense.Datastream(client, feed, {queue_size: 20});
+        stream = new sense.Datastream(client, {queue_size: 1, id: feed_id});
 
 
 stream.addPoint(1337);
