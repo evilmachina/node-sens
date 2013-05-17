@@ -1,5 +1,5 @@
 {
-  "name": "node-sense",
+  "name": "sense",
   "version": "0.0.0",
   "description": "Library for interfacing with Sen.se http://sen.se",
   "main": "sense.js",
